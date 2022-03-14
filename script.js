@@ -41,3 +41,18 @@ function displayBook() {
 }
 
 displayBook()
+
+// html Addbutton fucntion
+const newBook = document.getElementById('add');
+const newBookEl = newBook.querySelectorAll('input');
+
+newBookEl[2].addEventListener('click', () => {
+  if (newBookEl[0].value === '' || newBookEl[1].value === '') {
+    return
+  }
+  addBook(newBookEl[0].value, newBookEl[1].value)
+  displayBook()
+  newBookEl[0].value = '';
+  newBookEl[1].value = '';
+  console.log(bookList);
+});
