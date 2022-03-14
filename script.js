@@ -24,7 +24,16 @@ function removeBook(title, author) {
 // Create book card for each e in bookList
 const bookSection = document.getElementById('bookList');
 
+function clearAll() {
+  const remove = bookSection.querySelectorAll('div')
+  remove.forEach((book) => {
+    bookSection.removeChild(book)
+  });
+
+}
 function displayBook() {
+  clearAll()
+
   bookList.forEach((book) => {
     const bDiv = document.createElement('div');
     const bTitle = document.createElement('p');
