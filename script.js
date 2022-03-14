@@ -14,7 +14,9 @@ function addBook(title, author) {
 
 // Remove book objects
 function removeBook(title, author) {
-  bookList = bookList.filter(book => book.title !== title)
+  bookList = bookList.filter(function(book){
+    return book.title !== title || book.author !== author
+  });
 
   toLS()
 }
@@ -44,23 +46,24 @@ function displayBook() {
     // Remove listener
     bBtn.addEventListener('click', () => {
       bookSection.removeChild(bDiv);
-      return removeBook(book.title);
+      return removeBook(book.title, book.author);
     });
   });
 }
 
-// html Addbutton fucntion
+// html Addbutton function
 const newBook = document.getElementById('add');
 const newBookEl = newBook.querySelectorAll('input');
 
 newBookEl[2].addEventListener('click', () => {
   if (newBookEl[0].value === '' || newBookEl[1].value === '') {
     return
+  } else {
+    addBook(newBookEl[0].value, newBookEl[1].value)
+    displayBook()
+    newBookEl[0].value = '';
+    newBookEl[1].value = '';
   }
-  addBook(newBookEl[0].value, newBookEl[1].value)
-  displayBook()
-  newBookEl[0].value = '';
-  newBookEl[1].value = '';
 });
 
 // Local Storage
