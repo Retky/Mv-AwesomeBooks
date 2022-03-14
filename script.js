@@ -20,13 +20,13 @@ function removeBook(title, author) {
 const bookSection = document.getElementById('bookList');
 
 function displayBook() {
-  bookList.forEach((book) => {
-    const bDiv = document.createElement('div');
-    const bTitle = document.createElement('p');
-    const bAuthor = document.createElement('p');
-    const bBtn = document.createElement('button');
-    const bLine = document.createElement('hr');
+  const bDiv = document.createElement('div');
+  const bTitle = document.createElement('p');
+  const bAuthor = document.createElement('p');
+  const bBtn = document.createElement('button');
+  const bLine = document.createElement('hr');
 
+  bookList.forEach((book) => {
     bTitle.innerHTML = book.title;
     bAuthor.innerHTML = book.author;
     bBtn.innerHTML = 'Remove';
@@ -35,9 +35,8 @@ function displayBook() {
     bDiv.appendChild(bAuthor);
     bDiv.appendChild(bBtn);
     bDiv.appendChild(bLine);
-
-    bookSection.appendChild(bDiv);
   });
+  bookSection.appendChild(bDiv);
 }
 
 displayBook()
