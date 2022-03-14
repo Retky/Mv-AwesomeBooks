@@ -9,11 +9,15 @@ function addBook(title, author) {
       author: author
   };
   bookList.push(book);
+
+  toLocalS();
 }
 
 // Remove book objects
 function removeBook(title, author) {
   bookList = bookList.filter(book => book.title !== title)
+
+  toLocalS()
 }
 
 // Create book card for each e in bookList
@@ -38,15 +42,12 @@ function displayBook() {
 
     // Remove listener
     bBtn.addEventListener('click', () => {
-      console.log('click');
       bookSection.removeChild(bDiv);
       return removeBook(book.title);
     });
   });
   bookSection.appendChild(bDiv);
 }
-
-displayBook()
 
 // html Addbutton fucntion
 const newBook = document.getElementById('add');
@@ -60,18 +61,18 @@ newBookEl[2].addEventListener('click', () => {
   displayBook()
   newBookEl[0].value = '';
   newBookEl[1].value = '';
-  console.log(bookList);
 });
 
 // Local Storage
 let toLS;
 function toLocalS() {
-  console.log('load')
   toLS = JSON.stringify(bookList);
   localStorage.setItem('books', toLS);
 }
 
-let fromLS = JSON.parse(localStorage.getItem('books'));
-bookList = fromLS;
+if (localStorage.books) {
+  let fromLS = JSON.parse(localStorage.getItem('books'));
+  bookList = fromLS;
+}
 
-setInterval(toLocalS(), 1000);
+displayBook()
