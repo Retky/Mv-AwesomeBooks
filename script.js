@@ -35,6 +35,13 @@ function displayBook() {
     bDiv.appendChild(bAuthor);
     bDiv.appendChild(bBtn);
     bDiv.appendChild(bLine);
+
+    // Remove listener
+    bBtn.addEventListener('click', () => {
+      console.log('click');
+      bookSection.removeChild(bDiv);
+      return removeBook(book.title);
+    });
   });
   bookSection.appendChild(bDiv);
 }
