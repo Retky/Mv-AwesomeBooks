@@ -1,7 +1,6 @@
 // Holds the books objects
 let bookList = [];
 
-
 // Add book to bookList(w- Title & Author)
 function addBook(title, author) {
   const book = {
@@ -10,27 +9,27 @@ function addBook(title, author) {
   };
   bookList.push(book);
 
-  toLocalS();
+  toLS();
 }
 
 // Remove book objects
 function removeBook(title, author) {
   bookList = bookList.filter(book => book.title !== title)
 
-  toLocalS()
+  toLS()
 }
 
 // Create book card for each e in bookList
 const bookSection = document.getElementById('bookList');
 
 function displayBook() {
-  const bDiv = document.createElement('div');
-  const bTitle = document.createElement('p');
-  const bAuthor = document.createElement('p');
-  const bBtn = document.createElement('button');
-  const bLine = document.createElement('hr');
-
   bookList.forEach((book) => {
+    const bDiv = document.createElement('div');
+    const bTitle = document.createElement('p');
+    const bAuthor = document.createElement('p');
+    const bBtn = document.createElement('button');
+    const bLine = document.createElement('hr');
+
     bTitle.innerHTML = book.title;
     bAuthor.innerHTML = book.author;
     bBtn.innerHTML = 'Remove';
@@ -40,13 +39,14 @@ function displayBook() {
     bDiv.appendChild(bBtn);
     bDiv.appendChild(bLine);
 
+    bookSection.appendChild(bDiv);
+
     // Remove listener
     bBtn.addEventListener('click', () => {
       bookSection.removeChild(bDiv);
       return removeBook(book.title);
     });
   });
-  bookSection.appendChild(bDiv);
 }
 
 // html Addbutton fucntion
@@ -64,14 +64,13 @@ newBookEl[2].addEventListener('click', () => {
 });
 
 // Local Storage
-let toLS;
-function toLocalS() {
-  toLS = JSON.stringify(bookList);
+function toLS() {
+  let toLS = JSON.stringify(bookList);
   localStorage.setItem('books', toLS);
 }
 
 if (localStorage.books) {
-  let fromLS = JSON.parse(localStorage.getItem('books'));
+  let fromLS = JSON.parse(localStorage.books);
   bookList = fromLS;
 }
 
