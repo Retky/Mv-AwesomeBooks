@@ -62,3 +62,16 @@ newBookEl[2].addEventListener('click', () => {
   newBookEl[1].value = '';
   console.log(bookList);
 });
+
+// Local Storage
+let toLS;
+function toLocalS() {
+  console.log('load')
+  toLS = JSON.stringify(bookList);
+  localStorage.setItem('books', toLS);
+}
+
+let fromLS = JSON.parse(localStorage.getItem('books'));
+bookList = fromLS;
+
+setInterval(toLocalS(), 1000);
