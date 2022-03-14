@@ -1,11 +1,22 @@
 // Holds the books objects
 let bookList = [];
 
+// Local Storage
+function toLS() {
+  const toLS = JSON.stringify(bookList);
+  localStorage.setItem('books', toLS);
+}
+
+if (localStorage.books) {
+  const fromLS = JSON.parse(localStorage.books);
+  bookList = fromLS;
+}
+
 // Add book to bookList(w- Title & Author)
 function addBook(title, author) {
   const book = {
-      title: title,
-      author: author
+    title,
+    author,
   };
   bookList.push(book);
 
@@ -14,25 +25,22 @@ function addBook(title, author) {
 
 // Remove book objects
 function removeBook(title, author) {
-  bookList = bookList.filter(function(book){
-    return book.title !== title || book.author !== author
-  });
+  bookList = bookList.filter((book) => book.title !== title || book.author !== author);
 
-  toLS()
+  toLS();
 }
 
 // Create book card for each e in bookList
 const bookSection = document.getElementById('bookList');
 
 function clearAll() {
-  const remove = bookSection.querySelectorAll('div')
+  const remove = bookSection.querySelectorAll('div');
   remove.forEach((book) => {
-    bookSection.removeChild(book)
+    bookSection.removeChild(book);
   });
-
 }
 function displayBook() {
-  clearAll()
+  clearAll();
 
   bookList.forEach((book) => {
     const bDiv = document.createElement('div');
@@ -60,30 +68,22 @@ function displayBook() {
   });
 }
 
+displayBook();
+
 // html Addbutton function
 const newBook = document.getElementById('add');
 const newBookEl = newBook.querySelectorAll('input');
 
 newBookEl[2].addEventListener('click', () => {
-  if (newBookEl[0].value === '' || newBookEl[1].value === '') {
-    return
-  } else {
-    addBook(newBookEl[0].value, newBookEl[1].value)
-    displayBook()
+  if (newBookEl[0].value !== '' && newBookEl[1].value !== '') {
+    addBook(newBookEl[0].value, newBookEl[1].value);
+    displayBook();
+    newBookEl[0].value = '';
+    newBookEl[1].value = '';
+  } else if (newBookEl[0].value !== '') {
+    addBook(newBookEl[0].value, 'Anonymous');
+    displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';
   }
 });
-
-// Local Storage
-function toLS() {
-  let toLS = JSON.stringify(bookList);
-  localStorage.setItem('books', toLS);
-}
-
-if (localStorage.books) {
-  let fromLS = JSON.parse(localStorage.books);
-  bookList = fromLS;
-}
-
-displayBook()
