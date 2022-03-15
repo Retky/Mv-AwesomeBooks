@@ -14,13 +14,24 @@ if (localStorage.books) {
 
 // Add book to bookList(w- Title & Author)
 function addBook(title, author) {
-  const book = {
-    title,
-    author,
-  };
+  class Book {
+    constructor(title, author){
+      this.title = title;
+      this.author = author;
+    }
+  }
+
+  const book = new Book(title, author);
+
+  // const book = {
+  //   title,
+  //   author,
+  // };
+
   bookList.push(book);
 
   toLS();
+
 }
 
 // Remove book objects
