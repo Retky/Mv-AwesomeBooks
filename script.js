@@ -14,19 +14,11 @@ if (localStorage.books) {
 
 // Add book to bookList(w- Title & Author)
 function addBook(title, author) {
-  class Book {
-    constructor(title, author){
-      this.title = title;
-      this.author = author;
-    }
-  }
 
-  const book = new Book(title, author);
-
-  // const book = {
-  //   title,
-  //   author,
-  // };
+  const book = {
+    title,
+    author,
+  };
 
   bookList.push(book);
 
@@ -98,3 +90,6 @@ newBookEl[2].addEventListener('click', () => {
     newBookEl[1].value = '';
   }
 });
+
+
+
