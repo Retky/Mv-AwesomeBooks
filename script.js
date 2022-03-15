@@ -56,7 +56,6 @@ function displayBook() {
     const bTitle = document.createElement('p');
     const bAuthor = document.createElement('small');
     const bBtn = document.createElement('button');
-    const bLine = document.createElement('hr');
 
     bDiv.classList.add('book');
     bTitle.innerHTML = book.title;
@@ -93,7 +92,7 @@ const newBookEl = newBook.querySelectorAll('input');
 
 newBookEl[2].addEventListener('click', () => {
   if (newBookEl[0].value !== '' && newBookEl[1].value !== '') {
-    bookList.add('"' + newBookEl[0].value + '"', 'by ' + newBookEl[1].value);
+    bookList.add(`"${newBookEl[0].value}"`, `by ${newBookEl[1].value}`);
     displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';
