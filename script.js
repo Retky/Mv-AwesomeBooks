@@ -1,36 +1,38 @@
 // Holds the books objects
-let bookList = [];
+class Books {
+  constructor() {
+    this.list = [];
+  }
 
-// Local Storage
-function toLS() {
-  const toLS = JSON.stringify(bookList);
-  localStorage.setItem('books', toLS);
+  // Local Storage
+  toLS() {
+    const toLS = JSON.stringify(this.list);
+    localStorage.setItem('books', toLS);
+  }
+
+  // Add book to bookList(w- Title & Author)
+  add(title, author) {
+    const book = {
+      title,
+      author,
+    };
+
+    this.list.push(book);
+    this.toLS();
+  }
+
+  // Remove book objects
+  remove(title, author) {
+    this.list = this.list.filter((book) => book.title !== title || book.author !== author);
+    this.toLS();
+  }
 }
+
+const bookList = new Books();
 
 if (localStorage.books) {
   const fromLS = JSON.parse(localStorage.books);
-  bookList = fromLS;
-}
-
-// Add book to bookList(w- Title & Author)
-function addBook(title, author) {
-
-  const book = {
-    title,
-    author,
-  };
-
-  bookList.push(book);
-
-  toLS();
-
-}
-
-// Remove book objects
-function removeBook(title, author) {
-  bookList = bookList.filter((book) => book.title !== title || book.author !== author);
-
-  toLS();
+  bookList.list = fromLS;
 }
 
 // Create book card for each e in bookList
@@ -42,10 +44,11 @@ function clearAll() {
     bookSection.removeChild(book);
   });
 }
+
 function displayBook() {
   clearAll();
 
-  bookList.forEach((book) => {
+  bookList.list.forEach((book) => {
     const bDiv = document.createElement('div');
     const bTitle = document.createElement('p');
     const bAuthor = document.createElement('p');
@@ -66,7 +69,7 @@ function displayBook() {
     // Remove listener
     bBtn.addEventListener('click', () => {
       bookSection.removeChild(bDiv);
-      return removeBook(book.title, book.author);
+      return bookList.remove(book.title, book.author);
     });
   });
 }
@@ -79,17 +82,14 @@ const newBookEl = newBook.querySelectorAll('input');
 
 newBookEl[2].addEventListener('click', () => {
   if (newBookEl[0].value !== '' && newBookEl[1].value !== '') {
-    addBook(newBookEl[0].value, newBookEl[1].value);
+    bookList.add(newBookEl[0].value, newBookEl[1].value);
     displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';
   } else if (newBookEl[0].value !== '') {
-    addBook(newBookEl[0].value, 'Anonymous');
+    bookList.add(newBookEl[0].value, 'Anonymous');
     displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';
   }
 });
-
-
-
