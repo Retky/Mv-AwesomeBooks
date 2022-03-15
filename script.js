@@ -1,69 +1,85 @@
 // Holds the books objects
-let bookList = [];
+class Books {
+  constructor() {
+    this.list = [];
+  }
 
-// Local Storage
-function toLS() {
-  const toLS = JSON.stringify(bookList);
-  localStorage.setItem('books', toLS);
+  // Local Storage
+  toLS() {
+    const toLS = JSON.stringify(this.list);
+    localStorage.setItem('books', toLS);
+  }
+
+  // Add book to bookList(w- Title & Author)
+  add(title, author) {
+    const book = {
+      title,
+      author,
+    };
+
+    this.list.push(book);
+    this.toLS();
+  }
+
+  // Remove book objects
+  remove(title, author) {
+    this.list = this.list.filter((book) => book.title !== title || book.author !== author);
+    this.toLS();
+  }
 }
+
+const bookList = new Books();
 
 if (localStorage.books) {
   const fromLS = JSON.parse(localStorage.books);
-  bookList = fromLS;
-}
-
-// Add book to bookList(w- Title & Author)
-function addBook(title, author) {
-  const book = {
-    title,
-    author,
-  };
-  bookList.push(book);
-
-  toLS();
-}
-
-// Remove book objects
-function removeBook(title, author) {
-  bookList = bookList.filter((book) => book.title !== title || book.author !== author);
-
-  toLS();
+  bookList.list = fromLS;
 }
 
 // Create book card for each e in bookList
 const bookSection = document.getElementById('bookList');
 
 function clearAll() {
-  const remove = bookSection.querySelectorAll('div');
+  const remove = bookSection.querySelectorAll('.book');
   remove.forEach((book) => {
     bookSection.removeChild(book);
   });
 }
+
 function displayBook() {
   clearAll();
 
-  bookList.forEach((book) => {
-    const bDiv = document.createElement('div');
-    const bTitle = document.createElement('p');
-    const bAuthor = document.createElement('p');
-    const bBtn = document.createElement('button');
-    const bLine = document.createElement('hr');
+  let count = 1;
 
+  bookList.list.forEach((book) => {
+    const bDiv = document.createElement('div');
+    const nameDiv = document.createElement('div');
+    const bTitle = document.createElement('p');
+    const bAuthor = document.createElement('small');
+    const bBtn = document.createElement('button');
+
+    bDiv.classList.add('book');
     bTitle.innerHTML = book.title;
     bAuthor.innerHTML = book.author;
     bBtn.innerHTML = 'Remove';
 
-    bDiv.appendChild(bTitle);
-    bDiv.appendChild(bAuthor);
+    // Background flipflop
+    count += 1;
+    if (count % 2 !== 0) {
+      bDiv.classList.add('gray');
+      count = 1;
+    }
+
+    nameDiv.appendChild(bTitle);
+    nameDiv.appendChild(bAuthor);
+    bDiv.appendChild(nameDiv);
     bDiv.appendChild(bBtn);
-    bDiv.appendChild(bLine);
 
     bookSection.appendChild(bDiv);
 
     // Remove listener
     bBtn.addEventListener('click', () => {
       bookSection.removeChild(bDiv);
-      return removeBook(book.title, book.author);
+      return bookList.remove(book.title, book.author);
     });
   });
 }
@@ -76,12 +92,12 @@ const newBookEl = newBook.querySelectorAll('input');
 
 newBookEl[2].addEventListener('click', () => {
   if (newBookEl[0].value !== '' && newBookEl[1].value !== '') {
-    addBook(newBookEl[0].value, newBookEl[1].value);
+    bookList.add(`"${newBookEl[0].value}"`, `by ${newBookEl[1].value}`);
     displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';
   } else if (newBookEl[0].value !== '') {
-    addBook(newBookEl[0].value, 'Anonymous');
+    bookList.add(newBookEl[0].value, 'Anonymous');
     displayBook();
     newBookEl[0].value = '';
     newBookEl[1].value = '';

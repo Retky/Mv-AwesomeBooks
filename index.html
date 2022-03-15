@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Awesome Books</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Awesome books</h1>
+    <h1>All Awesome books</h1>
     <section id="bookList">
     </section>
-    <section id="add">
-      <form class="addBook" action="index.html" method="post">
+    <section>
+      <hr id="line">
+      <h2>Add a new book</h2>
+      <form  id="add" class="addBook" action="index.html" method="post">
         <input type="text" name="Title" value="" placeholder="Title">
-        <br>
-        <br>
         <input type="text" name="Author" value="" placeholder="Author">
-        <br>
-        <input type="button" name="Add" value="Add">
+        <input id="addBtn" type="button" name="Add" value="Add">
       </form>
     </section>
 
