@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+
+#bookList {
+  padding: 3px;
+  border: solid #000 3px;
+  border-radius: 3px;
+}
+
+#add {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#add input {
+  padding: 3px;
+  border: solid #000 3px;
+  border-radius: 3px;
+}
+
+#addBtn {
+  align-self: flex-end;
+  width: 50px;
+  box-shadow: 2px 2px #000;
+}
