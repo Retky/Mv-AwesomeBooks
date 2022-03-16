@@ -67,3 +67,26 @@ h2 {
 .gray {
   background: #dde;
 }
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid grey;
+}
+
+.navlist {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.navitem {
+  border-left: 2px solid grey;
+}
+
+.navlink {
+  font-size: 32px;
+  font-family: cursive;
+  padding: 12px;
+}
