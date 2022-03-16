@@ -11,6 +11,7 @@ h2 {
   border: solid #000 3px;
   border-radius: 3px;
   max-width: 850px;
+  margin: 0 auto;
 }
 
 #line {
