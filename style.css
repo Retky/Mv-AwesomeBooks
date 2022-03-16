@@ -112,3 +112,7 @@ h2 {
 .nav {
   padding-left: 2%;
 }
+
+.contactlist {
+  list-style-type: none;
+}
