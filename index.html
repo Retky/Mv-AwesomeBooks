@@ -12,25 +12,38 @@
 
         <nav class="nav">
           <ul class="navlist">
-            <li class="navitem"><a class="navlink">List</a></li>
-            <li class="navitem"><a class="navlink">Add new</a></li>
-            <li class="navitem"><a class="navlink">Contact</a></li>
+            <li class="navitem"><a class="navlink" href="#bookList">List</a></li>
+            <li class="navitem"><a class="navlink" href="#addnew">Add new</a></li>
+            <li class="navitem"><a class="navlink" href="#contact">Contact</a></li>
           </ul>
         </nav>
     </header>
 
-    <h1>All Awesome books</h1>
-    <section id="bookList">
-    </section>
-    <section>
-      <hr id="line">
-      <h2>Add a new book</h2>
-      <form  id="add" class="addBook" action="index.html" method="post">
-        <input type="text" name="Title" value="" placeholder="Title">
-        <input type="text" name="Author" value="" placeholder="Author">
-        <input id="addBtn" type="button" name="Add" value="Add">
-      </form>
-    </section>
+    <div class="main">
+      <h1>All Awesome books</h1>
+      <section id="bookList"></section>
+  
+      <section class="addbookform" id="addnew">
+        <hr id="line">
+        <h2>Add a new book</h2>
+        <form  id="add" class="addBook" action="index.html" method="post">
+          <input type="text" name="Title" value="" placeholder="Title">
+          <input type="text" name="Author" value="" placeholder="Author">
+          <input id="addBtn" type="button" name="Add" value="Add">
+        </form>
+      </section>
+
+      <section class="contactsection" id="contact">
+        <hr id="line">
+        <h2>Contact information</h2>
+        <form  id="add" class="addBook" action="index.html" method="post">
+          <input type="text" name="Title" value="" placeholder="Title">
+          <input type="text" name="Author" value="" placeholder="Author">
+          <input id="addBtn" type="button" name="Add" value="Add">
+        </form>
+      </section>
+    </div>
+
 
     <script src="script.js"></script>
   </body>

@@ -91,3 +91,12 @@ h2 {
   font-family: cursive;
   padding: 12px;
 }
+
+.main {
+  margin-top: 5%;
+}
+
+.addbookform,
+.contactsection {
+  margin-top: 10%;
+}
