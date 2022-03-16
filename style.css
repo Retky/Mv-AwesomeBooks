@@ -116,3 +116,11 @@ h2 {
 .contactlist {
   list-style-type: none;
 }
+
+.footer{
+  border: 3px solid grey;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+}
