@@ -103,3 +103,14 @@ newBookEl[2].addEventListener('click', () => {
     newBookEl[1].value = '';
   }
 });
+
+const navlist = document.querySelectorAll('.navlink');
+const section = document.querySelectorAll('.section')
+
+for (let i=0; i<section.length; i++) {
+  section[i].style.display = 'none';
+
+  navlist[i].addEventListener('click', ()=>{
+    section[i].style.display = 'block';
+  })
+}

@@ -1,5 +1,9 @@
 body {
   text-align: center;
+  position: relative;
+  /* display: flex; */
+  /* min-height: 100vh; */
+  /* flex-direction: column; */
 }
 
 h1,
@@ -95,6 +99,14 @@ h2 {
   color: initial;
 }
 
+.navlink1 {
+  font-size: 30px;
+  font-family: cursive;
+  padding: 12px;
+  text-decoration: none;
+  color: initial;
+}
+
 .navlink:active {
   color: purple;
 }
@@ -117,14 +129,23 @@ h2 {
   list-style-type: none;
 }
 
-.footer{
+.footer {
   border: 3px solid grey;
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
+  width:100%;
   bottom: 0;
 }
 
 .contactsection {
   margin-bottom: 10%;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
 }
