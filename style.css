@@ -5,6 +5,7 @@ body {
 h1,
 h2 {
   font-family: cursive;
+  font-size: 30px;
 }
 
 #bookList {
@@ -87,9 +88,15 @@ h2 {
 }
 
 .navlink {
-  font-size: 32px;
+  font-size: 30px;
   font-family: cursive;
   padding: 12px;
+  text-decoration: none;
+  color: initial;
+}
+
+.navlink:active {
+  color: purple;
 }
 
 .main {
@@ -99,4 +106,9 @@ h2 {
 .addbookform,
 .contactsection {
   margin-top: 10%;
+}
+
+.logo,
+.nav {
+  padding-left: 2%;
 }
