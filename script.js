@@ -1,3 +1,7 @@
+// Navigation
+const navlist = document.querySelectorAll('.navlink');
+const section = document.querySelectorAll('.section');
+
 // Holds the books objects
 class Books {
   constructor() {
@@ -19,6 +23,9 @@ class Books {
 
     this.list.push(book);
     this.toLS();
+
+    section[1].style.display = 'none';
+    section[0].style.display = 'block';
   }
 
   // Remove book objects
@@ -109,9 +116,6 @@ const datePlace = document.querySelector('.date');
 datePlace.innerHTML = Date();
 
 // Navigation
-const navlist = document.querySelectorAll('.navlink');
-const section = document.querySelectorAll('.section');
-
 for (let i = 0; i <= section.length; i += 1) {
   section[i].style.display = 'none';
   section[0].style.display = 'block';
