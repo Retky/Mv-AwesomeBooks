@@ -7,18 +7,53 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>All Awesome books</h1>
-    <section id="bookList">
-    </section>
-    <section>
-      <hr id="line">
-      <h2>Add a new book</h2>
-      <form  id="add" class="addBook" action="index.html" method="post">
-        <input type="text" name="Title" value="" placeholder="Title">
-        <input type="text" name="Author" value="" placeholder="Author">
-        <input id="addBtn" type="button" name="Add" value="Add">
-      </form>
-    </section>
+
+    <header class="header">
+        <h1 class="logo">Awesome books</h1>
+        <nav class="nav">
+          <ul class="navlist">
+            <li class="navitem"><a class="navlink" href="#bookList">List</a></li>
+            <li class="navitem"><a class="navlink" href="#addnew">Add new</a></li>
+            <li class="navitem"><a class="navlink" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+    <div class="date"></div>
+
+    <main class="main">
+      <section class="section">
+        <h2>All Awesome books</h2>
+        <div id="bookList"></div>
+      </section>
+
+      <section class="addbookform section" id="addnew">
+        <h2>Add a new book</h2>
+        <form  id="add" class="addBook" action="index.html" method="post">
+          <input type="text" name="Title" value="" placeholder="Title">
+          <input type="text" name="Author" value="" placeholder="Author">
+          <input id="addBtn" type="button" name="Add" value="Add">
+        </form>
+      </section>
+
+      <section class="contactsection section" id="contact">
+        <h2>Contact information</h2>
+        <p>Do you have any questions or you just want to say "hello"?</p>
+        <ul>
+          <li class="contactlist">Our email: mail@mail.com</li>
+          <li class="contactlist">Our phonme number: 785776767</li>
+          <li class="contactlist">Our address: Streetname 22, 84036 City, Country</li>
+        </ul>
+      </section>
+    </main>
+
+
+    <footer class="footer">
+      <h1 class="logo">Copyright</h1>
+      <nav class="nav">
+        <p>.......</p>
+      </nav>
+  </footer>
+
 
     <script src="script.js"></script>
   </body>

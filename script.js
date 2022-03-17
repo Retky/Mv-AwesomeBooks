@@ -1,3 +1,7 @@
+// Navigation
+const navlist = document.querySelectorAll('.navlink');
+const section = document.querySelectorAll('.section');
+
 // Holds the books objects
 class Books {
   constructor() {
@@ -19,6 +23,9 @@ class Books {
 
     this.list.push(book);
     this.toLS();
+
+    section[1].style.display = 'none';
+    section[0].style.display = 'block';
   }
 
   // Remove book objects
@@ -103,3 +110,19 @@ newBookEl[2].addEventListener('click', () => {
     newBookEl[1].value = '';
   }
 });
+
+// Date
+const datePlace = document.querySelector('.date');
+datePlace.innerHTML = Date();
+
+// Navigation
+for (let i = 0; i <= section.length; i += 1) {
+  section[i].style.display = 'none';
+  section[0].style.display = 'block';
+  navlist[i].addEventListener('click', () => {
+    for (let e = 0; e < section.length; e += 1) {
+      section[e].style.display = 'none';
+    }
+    section[i].style.display = 'block';
+  });
+}
