@@ -12,7 +12,7 @@
         <h1 class="logo">Awesome books</h1>
         <nav class="nav">
           <ul class="navlist">
-            <li class="navitem"><a class="navlink1" href="#bookList">List</a></li>
+            <li class="navitem"><a class="navlink" href="#bookList">List</a></li>
             <li class="navitem"><a class="navlink" href="#addnew">Add new</a></li>
             <li class="navitem"><a class="navlink" href="#contact">Contact</a></li>
           </ul>
@@ -20,11 +20,12 @@
     </header>
 
     <main class="main">
-      <h1>All Awesome books</h1>
-      <section id="bookList"></section>
-  
+      <section class="section">
+        <h2>All Awesome books</h2>
+        <div id="bookList"></div>
+      </section>
+
       <section class="addbookform section" id="addnew">
-        <hr id="line">
         <h2>Add a new book</h2>
         <form  id="add" class="addBook" action="index.html" method="post">
           <input type="text" name="Title" value="" placeholder="Title">
@@ -34,7 +35,6 @@
       </section>
 
       <section class="contactsection section" id="contact">
-        <hr id="line">
         <h2>Contact information</h2>
         <p>Do you have any questions or you just want to say "hello"?</p>
         <ul>
