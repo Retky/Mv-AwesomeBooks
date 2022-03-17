@@ -104,17 +104,21 @@ newBookEl[2].addEventListener('click', () => {
   }
 });
 
-const navlist = document.querySelectorAll('.navlink');
-const section = document.querySelectorAll('.section')
+// Date
+const datePlace = document.querySelector('.date');
+datePlace.innerHTML = Date();
 
-for (let i = 0; i <= section.length; i++) {
+// Navigation
+const navlist = document.querySelectorAll('.navlink');
+const section = document.querySelectorAll('.section');
+
+for (let i = 0; i <= section.length; i += 1) {
   section[i].style.display = 'none';
   section[0].style.display = 'block';
   navlist[i].addEventListener('click', () => {
-    for (let e = 0; e < section.length; e++) {
-      console.log(section[e]);
+    for (let e = 0; e < section.length; e += 1) {
       section[e].style.display = 'none';
     }
     section[i].style.display = 'block';
-  })
+  });
 }
