@@ -107,10 +107,14 @@ newBookEl[2].addEventListener('click', () => {
 const navlist = document.querySelectorAll('.navlink');
 const section = document.querySelectorAll('.section')
 
-for (let i=0; i<section.length; i++) {
+for (let i = 0; i <= section.length; i++) {
   section[i].style.display = 'none';
-
-  navlist[i].addEventListener('click', ()=>{
+  section[0].style.display = 'block';
+  navlist[i].addEventListener('click', () => {
+    for (let e = 0; e < section.length; e++) {
+      console.log(section[e]);
+      section[e].style.display = 'none';
+    }
     section[i].style.display = 'block';
   })
 }
