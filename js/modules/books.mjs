@@ -1,10 +1,14 @@
-import {toLS} from './localStorage.mjs'
-import {section} from './elements.mjs'
+import { section } from './elements.mjs';
 
-class Books {
+export default class Books {
   constructor() {
     this.list = [];
   }
+
+  toLS = () => {
+    const to = JSON.stringify(this.list);
+    localStorage.setItem('books', to);
+  };
 
   // Add book to bookList(w- Title & Author)
   add = (title, author = 'Anonymous') => {
@@ -14,7 +18,7 @@ class Books {
     };
 
     this.list.push(book);
-    toLS();
+    this.toLS();
 
     section[1].style.display = 'none';
     section[0].style.display = 'block';
@@ -23,7 +27,7 @@ class Books {
   // Remove book objects
   remove = (title, author) => {
     this.list = this.list.filter((book) => book.title !== title || book.author !== author);
-    toLS();
+    this.toLS();
   }
 }
 

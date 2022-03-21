@@ -1,6 +1,6 @@
-import {clearAll} from './clearBooks.mjs';
-import {bookList} from './books.mjs';
-import {bookSection} from './elements.mjs';
+import clearAll from './clearBooks.mjs';
+import { bookList } from './books.mjs';
+import { bookSection } from './elements.mjs';
 
 const displayBook = () => {
   clearAll();
@@ -30,6 +30,6 @@ const displayBook = () => {
       return bookList.remove(book.title, book.author);
     });
   });
-}
+};
 
-export {displayBook}
+export default displayBook;
