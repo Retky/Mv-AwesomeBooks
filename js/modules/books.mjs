@@ -1,4 +1,5 @@
 import {toLS} from './localStorage.mjs'
+import {section} from './elements.mjs'
 
 class Books {
   constructor() {
@@ -15,8 +16,8 @@ class Books {
     this.list.push(book);
     toLS();
 
-    // section[1].style.display = 'none';
-    // section[0].style.display = 'block';
+    section[1].style.display = 'none';
+    section[0].style.display = 'block';
   }
 
   // Remove book objects
