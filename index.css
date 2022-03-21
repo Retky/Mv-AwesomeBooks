@@ -53,6 +53,10 @@ h2 {
   align-items: center;
 }
 
+#bookList .book:nth-child(odd) {
+  background: #ddd;
+}
+
 .book div {
   display: flex;
   align-items: baseline;
@@ -130,7 +134,7 @@ h2 {
   list-style-type: none;
 }
 
-.footer {
+footer {
   border: 3px solid grey;
   display: flex;
   align-items: center;
