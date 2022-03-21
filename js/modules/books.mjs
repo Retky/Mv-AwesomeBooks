@@ -1,12 +1,8 @@
+import toLS from './localStorage.mjs'
+
 class Books {
   constructor() {
     this.list = [];
-  }
-
-  // Local Storage
-  toLS() {
-    const toLS = JSON.stringify(this.list);
-    localStorage.setItem('books', toLS);
   }
 
   // Add book to bookList(w- Title & Author)
@@ -17,7 +13,7 @@ class Books {
     };
 
     this.list.push(book);
-    this.toLS();
+    toLS();
 
     section[1].style.display = 'none';
     section[0].style.display = 'block';
@@ -26,7 +22,7 @@ class Books {
   // Remove book objects
   remove(title, author) {
     this.list = this.list.filter((book) => book.title !== title || book.author !== author);
-    this.toLS();
+    toLS();
   }
 }
 
