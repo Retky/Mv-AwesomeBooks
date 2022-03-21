@@ -130,7 +130,7 @@ h2 {
   list-style-type: none;
 }
 
-.footer {
+footer {
   border: 3px solid grey;
   display: flex;
   align-items: center;
