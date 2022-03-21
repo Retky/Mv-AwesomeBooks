@@ -1,49 +1,49 @@
-// Navigation
-const navlist = document.querySelectorAll('.navlink');
-const section = document.querySelectorAll('.section');
+// // Navigation
+// const navlist = document.querySelectorAll('.navlink');
+// const section = document.querySelectorAll('.section');
 
-// Holds the books objects
-class Books {
-  constructor() {
-    this.list = [];
-  }
+// // Holds the books objects
+// class Books {
+//   constructor() {
+//     this.list = [];
+//   }
 
-  // Local Storage
-  toLS() {
-    const toLS = JSON.stringify(this.list);
-    localStorage.setItem('books', toLS);
-  }
+//   // Local Storage
+//   toLS() {
+//     const toLS = JSON.stringify(this.list);
+//     localStorage.setItem('books', toLS);
+//   }
 
-  // Add book to bookList(w- Title & Author)
-  add(title, author) {
-    const book = {
-      title,
-      author,
-    };
+//   // Add book to bookList(w- Title & Author)
+//   add(title, author) {
+//     const book = {
+//       title,
+//       author,
+//     };
 
-    this.list.push(book);
-    this.toLS();
+//     this.list.push(book);
+//     this.toLS();
 
-    section[1].style.display = 'none';
-    section[0].style.display = 'block';
-  }
+//     section[1].style.display = 'none';
+//     section[0].style.display = 'block';
+//   }
 
-  // Remove book objects
-  remove(title, author) {
-    this.list = this.list.filter((book) => book.title !== title || book.author !== author);
-    this.toLS();
-  }
-}
+//   // Remove book objects
+//   remove(title, author) {
+//     this.list = this.list.filter((book) => book.title !== title || book.author !== author);
+//     this.toLS();
+//   }
+// }
 
-const bookList = new Books();
+// const bookList = new Books();
 
-if (localStorage.books) {
-  const fromLS = JSON.parse(localStorage.books);
-  bookList.list = fromLS;
-}
+// if (localStorage.books) {
+//   const fromLS = JSON.parse(localStorage.books);
+//   bookList.list = fromLS;
+// }
 
-// Create book card for each e in bookList
-const bookSection = document.getElementById('bookList');
+// // Create book card for each e in bookList
+// const bookSection = document.getElementById('bookList');
 
 function clearAll() {
   const remove = bookSection.querySelectorAll('.book');

@@ -10,7 +10,6 @@ const fromLS = () => {
     const from = JSON.parse(localStorage.books);
     bookList.list = from;
   }
-
 }
 
 export {toLS, fromLS}
