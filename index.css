@@ -16,6 +16,10 @@ h2 {
   margin: 0 auto;
 }
 
+#bookList .book:nth-child(odd) {
+  background: #ddd;
+}
+
 #line {
   margin-top: 30px;
   width: 150px;
