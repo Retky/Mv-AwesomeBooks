@@ -1,9 +1,8 @@
-import clearAll from './clearBooks.mjs';
 import { bookList } from './books.mjs';
 import { bookSection } from './elements.mjs';
 
 const displayBook = () => {
-  clearAll();
+  bookSection.innerHTML = '';
 
   bookList.list.forEach((book) => {
     const bDiv = document.createElement('div');
