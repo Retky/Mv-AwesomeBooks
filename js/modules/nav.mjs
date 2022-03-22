@@ -1,6 +1,4 @@
-import { navlist, section } from './elements.mjs';
-
-const navLinks = () => {
+const navLinks = (navlist, section) => {
   for (let i = 0; i <= section.length; i += 1) {
     section[i].style.display = 'none';
     section[0].style.display = 'block';

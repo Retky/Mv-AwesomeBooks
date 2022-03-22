@@ -1,7 +1,4 @@
-import { bookList } from './books.mjs';
-import { bookSection } from './elements.mjs';
-
-const displayBook = () => {
+const displayBook = (bookList, bookSection) => {
   bookSection.innerHTML = '';
 
   bookList.list.forEach((book) => {
