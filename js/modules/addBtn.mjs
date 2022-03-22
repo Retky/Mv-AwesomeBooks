@@ -14,6 +14,6 @@ const addListener = (newBookEl, bookList, bookSection) => {
       newBookEl[1].value = '';
     }
   });
-}
+};
 
-export default addListener
+export default addListener;
